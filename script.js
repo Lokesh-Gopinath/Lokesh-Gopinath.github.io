@@ -38,10 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.remove('fade-out');
+                } else {
+                    entry.target.classList.remove('visible');
+                    entry.target.classList.add('fade-out');
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in, .hidden').forEach(el => {
             el.classList.add('hidden');
@@ -70,42 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             card.addEventListener('mouseleave', () => {
                 techStack.style.opacity = '0';
-                techStack.style.transform = 'translateY(25px)';
+                techStack.style.transform = 'translateY(15px)';
             });
         });
     }
 
     function setupParticles() {
         const particleContainer = document.getElementById('particles');
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 30; i++) { // Reduced particle count for compactness
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
-            particle.style.animationDelay = `${Math.random() * 7}s`;
+            particle.style.animationDelay = `${Math.random() * 6}s`;
             particleContainer.appendChild(particle);
         }
-    }
-
-    function setupCursorTrail() {
-        const trail = document.querySelector('.cursor-trail');
-        let mouseX = 0, mouseY = 0;
-        let trailX = 0, trailY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateTrail() {
-            trailX += (mouseX - trailX) * 0.2;
-            trailY += (mouseY - trailY) * 0.2;
-            trail.style.left = `${trailX}px`;
-            trail.style.top = `${trailY}px`;
-            requestAnimationFrame(animateTrail);
-        }
-
-        animateTrail();
     }
 
     function init() {
@@ -122,11 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setupSmoothScroll();
         setupProjectHover();
         setupParticles();
-        setupCursorTrail();
 
         const navLinks = document.querySelectorAll('nav ul li a');
         window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + 80;
+            const scrollPos = window.scrollY + 60;
             navLinks.forEach(link => {
                 const section = document.querySelector(link.getAttribute('href'));
                 if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
