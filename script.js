@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             span.style.color = `hsl(${Math.random() * 360}, 90%, 80%)`;
             span.style.opacity = 1;
             span.style.transform = 'translateY(0) scale(1)';
-            setTimeout(() => span.style.color = '#7289da', 500);
+            setTimeout(() => span.style.color = '#00bcd4', 500);
         }, config.transitionTime);
     }
 
@@ -80,14 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setupParticles() {
         const particleContainer = document.getElementById('particles');
-        for (let i = 0; i < 30; i++) { // Reduced particle count for compactness
+        for (let i = 0; i < 30; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = `${Math.random() * 100}%`;
             particle.style.top = `${Math.random() * 100}%`;
             particle.style.animationDelay = `${Math.random() * 6}s`;
             particleContainer.appendChild(particle);
-        }
+        });
     }
 
     function init() {
