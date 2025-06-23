@@ -3,59 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lokesh Gopinath K - Portfolio</title>
+    <meta name="description" content="Portfolio of Lokesh Gopinath K, an Electronics and Communication Engineering graduate specializing in IoT solutions.">
+    <title>Lokesh Gopinath K | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 </head>
 <body>
-    <div class="background-animation"></div>
-    <div class="container">
-        <header class="fade-in">
-            <nav class="fixed-nav">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <h1 id="title">
-                <span>L</span><span>o</span><span>k</span><span>e</span><span>s</span><span>h</span><span> </span>
-                <span>G</span><span>o</span><span>p</span><span>i</span><span>n</span><span>a</span><span>t</span><span>h</span><span> </span>
-                <span>K</span>
-            </h1>
-            <div id="particles"></div>
-        </header>
+    <canvas id="particles-canvas"></canvas>
+    <div id="scroll-progress"></div>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
 
-        <section id="about" class="fade-in">
+    <header>
+        <nav class="fixed-nav">
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1 id="title">Lokesh Gopinath K</h1>
+    </header>
+
+    <div class="container">
+        <section id="about" class="glassy-card">
+            <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About Me</h2>
                     <p>I’m an Electronics and Communication Engineering graduate who built a remote weather monitoring system with Firebase in just 48 hours. I thrive on turning IoT concepts into real-world solutions that save time and solve problems.</p>
-                    <a href="resume.pdf" target="_blank" class="resume-button">View Resume</a>
+                    <a href="resume.pdf" class="resume-button" target="_blank" rel="noopener">View Resume</a>
                 </div>
                 <div class="about-photo">
-                    <img src="photo.jpg" alt="Lokesh Gopinath debugging an IoT microcontroller">
+                    <img src="photo.png" alt="Lokesh Gopinath K" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <section id="education" class="fade-in">
+        <section id="education" class="glassy-card">
             <h2>Education</h2>
             <div class="education-timeline">
-                <div class="education-card hidden">
+                <div class="education-card glassy-card">
                     <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
                     <div class="card-content">
                         <h3>Panimalar Engineering College</h3>
                         <p>B.E Electronics & Communication Engineering</p>
                         <p class="details">2021 - 2025 | CGPA: 7.85</p>
-                        <span class="badge ongoing">Ongoing</span>
                     </div>
                 </div>
-                <div class="education-card hidden">
+                <div class="education-card glassy-card">
                     <div class="timeline-dot"><i class="fas fa-school"></i></div>
                     <div class="card-content">
                         <h3>Sri Vidya Mandir Mat. Hr. Sec. School</h3>
@@ -63,8 +63,8 @@
                         <p class="details">2021 | 76.78%</p>
                     </div>
                 </div>
-                <div class="education-card hidden">
-                    <div class="timeline-dot"><i class="fas fa-book"></i></div>
+                <div class="education-card glassy-card">
+                    <div class="timeline-dot"><i class="fas fa-school"></i></div>
                     <div class="card-content">
                         <h3>Sri Vidya Mandir Mat. Hr. Sec. School</h3>
                         <p>Secondary Education</p>
@@ -74,45 +74,45 @@
             </div>
         </section>
 
-        <section id="skills" class="fade-in">
+        <section id="skills" class="glassy-card">
             <h2>Skills</h2>
             <div class="skills-container">
-                <div class="skill-card hidden">
+                <div class="skill-card glassy-card">
                     <i class="fas fa-network-wired"></i>
                     <h3>Node-RED</h3>
                     <p>Workflow automation for IoT</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card glassy-card">
                     <i class="fas fa-cloud"></i>
                     <h3>Mindsphere</h3>
                     <p>Industrial IoT platform</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card glassy-card">
                     <i class="fas fa-code"></i>
                     <h3>Programming</h3>
                     <p>Java, Kotlin, C++, Dart, Python</p>
                 </div>
-                <div class="skill-card hidden">
+                <div class="skill-card glassy-card">
                     <i class="fas fa-microchip"></i>
                     <h3>Embedded Systems</h3>
                     <p>Firmware for microcontrollers</p>
                 </div>
-                <div class="skill-card soft-skill hidden">
+                <div class="skill-card glassy-card soft-skill">
                     <i class="fas fa-brain"></i>
                     <h3>Logical Thinking</h3>
                     <p>Analytical problem-solving</p>
                 </div>
-                <div class="skill-card soft-skill hidden">
+                <div class="skill-card glassy-card soft-skill">
                     <i class="fas fa-clock"></i>
                     <h3>Time Management</h3>
                     <p>Efficient prioritization</p>
                 </div>
-                <div class="skill-card soft-skill hidden">
-                    <i class="fas fa-sync-alt"></i>
+                <div class="skill-card glassy-card soft-skill">
+                    <i class="fas fa-sync"></i>
                     <h3>Adaptability</h3>
                     <p>Thrives in dynamic settings</p>
                 </div>
-                <div class="skill-card soft-skill hidden">
+                <div class="skill-card glassy-card soft-skill">
                     <i class="fas fa-sitemap"></i>
                     <h3>Organizational Skills</h3>
                     <p>Structuring projects and teams</p>
@@ -120,59 +120,60 @@
             </div>
         </section>
 
-        <section id="projects" class="fade-in">
+        <section id="projects" class="glassy-card">
             <h2>My Work</h2>
             <div class="project-list">
-                <div class="project-card hidden">
-                    <i class="fas fa-pump-soap"></i>
-                    <h3><a href="https://github.com/Lokesh-Gopinath/Liquid-pump-system" target="_blank">Liquid Pump System</a></h3>
+                <div class="project-card glassy-card">
+                    <i class="fas fa-tint"></i>
+                    <h3><a href="#">Liquid Pump System</a></h3>
                     <p>Remote monitoring and control via Node-MCU and Blynk IoT.</p>
-                    <span class="tech-stack">Node-MCU | Blynk</span>
+                    <div class="tech-stack">Node-MCU | Blynk</div>
                 </div>
-                <div class="project-card hidden">
+                <div class="project-card glassy-card">
                     <i class="fas fa-cloud-sun"></i>
-                    <h3><a href="https://github.com/Lokesh-Gopinath/WeatherNet" target="_blank">Weathernet</a></h3>
+                    <h3><a href="#">Weathernet</a></h3>
                     <p>Remote weather monitoring with Firebase and custom app.</p>
-                    <span class="tech-stack">Firebase | Microcontroller</span>
+                    <div class="tech-stack">Firebase | Microcontroller</div>
                 </div>
-                <div class="project-card hidden">
+                <div class="project-card glassy-card">
                     <i class="fas fa-calculator"></i>
-                    <h3><a href="https://github.com/Lokesh-Gopinath/Simple-Convertor" target="_blank">Simple Convertor</a></h3>
+                    <h3><a href="#">Simple Convertor</a></h3>
                     <p>App for converting Binary, Decimal, Octal, Hexadecimal.</p>
-                    <span class="tech-stack">Kotlin</span>
+                    <div class="tech-stack">Kotlin</div>
                 </div>
-                <div class="project-card hidden">
+                <div class="project-card glassy-card">
                     <i class="fas fa-lock"></i>
-                    <h3><a href="https://github.com/Lokesh-Gopinath/Vigenere-Cipher" target="_blank">Vigenere Cipher</a></h3>
+                    <h3><a href="#">Vigenere Cipher</a></h3>
                     <p>Implementation of the Vigenère cipher for text encryption.</p>
-                    <span class="tech-stack">HTML | CSS | JavaScript</span>
+                    <div class="tech-stack">HTML | CSS | JavaScript</div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="fade-in">
+        <section id="contact" class="glassy-card">
             <h2>Contact Me</h2>
             <div class="contact-container">
-                <div class="contact-card hidden">
+                <div class="contact-card glassy-card">
                     <i class="fas fa-envelope"></i>
                     <p><a href="mailto:lokeshgopinath75@gmail.com">lokeshgopinath75@gmail.com</a></p>
                 </div>
-                <div class="contact-card hidden">
+                <div class="contact-card glassy-card">
                     <i class="fab fa-linkedin"></i>
-                    <p><a href="https://www.linkedin.com/in/lokesh-gopinath-k" target="_blank">linkedin.com/in/lokesh-gopinath-k</a></p>
+                    <p><a href="https://linkedin.com/in/lokesh-gopinath-k" target="_blank" rel="noopener">linkedin.com/in/lokesh-gopinath-k</a></p>
                 </div>
-                <div class="contact-card hidden">
+                <div class="contact-card glassy-card">
                     <i class="fab fa-github"></i>
-                    <p><a href="https://github.com/Lokesh-Gopinath" target="_blank">github.com/Lokesh-Gopinath</a></p>
+                    <p><a href="https://github.com/Lokesh-Gopinath" target="_blank" rel="noopener">github.com/Lokesh-Gopinath</a></p>
                 </div>
             </div>
         </section>
 
-        <footer class="fade-in">
+        <footer class="glassy-card">
             <p>© 2024 Lokesh Gopinath K <span class="footer-icon">⚡</span> Built with Passion & Code</p>
             <div class="social-links">
-                <a href="https://github.com/Lokesh-Gopinath" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/lokesh-gopinath-k" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://linkedin.com/in/lokesh-gopinath-k" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Lokesh-Gopinath" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="mailto:lokeshgopinath75@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </footer>
     </div>
